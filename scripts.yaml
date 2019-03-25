@@ -1,0 +1,50 @@
+notification_test_pushover:
+  alias: Notification Test (Pushover)
+  sequence:
+    - service: notify.pushover
+      data_template:
+        title: Test
+        message: Dette er en test
+      data:
+        sound: falling
+        device: oystein_phone
+        url: "https://www.home-assistant.io/"
+
+notification_test_pushover2:
+  alias: Notification Test 2 (Pushover)
+  sequence:
+    - service: notify.pushover
+      data_template:
+        message: "Dette er en test"
+      data:
+        title: "Test"
+        data:
+          sound: falling
+          device: oystein_phone
+          url: "https://www.home-assistant.io/"
+
+notification_test_tibber:
+  alias: Notification Test (Tibber)
+  sequence:
+    - service: notify.tibber
+      data_template:
+        title: Test
+        message: Dette er en test
+        
+notification_test_html5_1:
+  alias: Notification Test (HTML5 - phone)
+  sequence:
+    - service: notify.html5
+      data_template:
+        title: Test
+        message: Dette er også en test!
+        target: "Oystein's phone"
+        
+notification_test_html5_2:
+  alias: Notification Test (HTML5 - laptop)
+  sequence:
+    - service: notify.html5
+      data_template:
+        title: Test
+        message: Dette er også en test!
+        target: "Oystein's work laptop"

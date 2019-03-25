@@ -1,0 +1,7 @@
+- platform: sensibo
+  api_key: !secret sensibo_api_key
+  
+- platform: generic_thermostat
+  name: Kitchen Heater
+  heater: switch.kitchen_heater_switch
+  target_sensor: sensor.kitchen_temperature

@@ -1,0 +1,44 @@
+kitchen_normal_temperature_setpoint:
+  name: Kitchen Normal Temperature Setpoint
+  min: 16
+  max: 30
+  step: 1
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+kitchen_lowered_temperature_setpoint:
+  name: Kitchen Lowered Temperature Setpoint
+  min: 16
+  max: 30
+  step: 1
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+  
+livingroom_normal_temperature_setpoint:
+  name: Living Room Normal Temperature Setpoint
+  min: 16
+  max: 30
+  step: 1
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+livingroom_lowered_temperature_setpoint:
+  name: Living Room Lowered Temperature Setpoint
+  min: 16
+  max: 30
+  step: 1
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+
+hugosroom_normal_temperature_setpoint:
+  name: Hugo's Room Normal Temperature Setpoint
+  min: 16
+  max: 30
+  step: 1
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer
+hugosroom_lowered_temperature_setpoint:
+  name: Hugo's Room Lowered Temperature Setpoint
+  min: 16
+  max: 30
+  step: 1
+  unit_of_measurement: "°C"
+  icon: mdi:thermometer

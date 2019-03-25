@@ -1,0 +1,32 @@
+
+############### RFXtrx433XL 433MHz gateway ##################
+- platform: rfxtrx
+  automatic_add: False
+  debug: False
+  devices:
+    "0a520900870000d32a0169":
+      name: Kitchen
+      data_type:
+        - Temperature
+        - Humidity
+      fire_event: True
+    "085007018800007069":
+      name: Outside
+      data_type:
+        - Temperature
+      fire_event: True
+    "0a520902a70000ee270269":
+      name: Office
+      data_type:
+        - Temperature
+        - Humidity
+      fire_event: True
+    "0a52090f970000c42f0169":
+      name: HugosRoom
+      data_type:
+        - Temperature
+        - Humidity
+      fire_event: True
+        
+# Weather prediction
+- platform: yr

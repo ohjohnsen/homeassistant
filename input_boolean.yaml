@@ -1,0 +1,14 @@
+kitchen_heating_enable:
+  name: Kitchen Heating Enable
+  initial: true
+  icon: mdi:radiator
+    
+livingroom_heating_enable:
+  name: Living Room Heating Enable
+  initial: true
+  icon: mdi:radiator
+  
+hugosroom_heating_enable:
+  name: Hugo's Room Heating Enable
+  initial: true
+  icon: mdi:radiator
