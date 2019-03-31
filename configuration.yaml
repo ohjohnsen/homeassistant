@@ -29,8 +29,7 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   ip_ban_enabled: True
-  login_attempts_threshold: 5
-  api_password: TestTest
+  login_attempts_threshold: 3
 
 # Enables support for tracking state changes over time
 history:
@@ -43,6 +42,13 @@ map:
 
 # Track the sun
 sun:
+
+mqtt:
+  broker: 192.168.2.140
+  port: 1883
+  client_id: home-assistant-1
+  username: !secret mqtt_user
+  password: !secret mqtt_password
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -70,6 +76,23 @@ input_select:
      - VACATION
     icon: mdi:panda
     
+cover:
+  - platform: mqtt
+    name: "garage_door"
+    state_topic: "home/outside/garage/door/state"
+    command_topic: "home/outside/garage/door/set"
+    payload_open: "OPEN"
+    payload_close: "OPEN"
+    payload_stop: "OPEN"
+    state_open: "open"
+    state_closed: "closed"
+    retain: false
+
+#################################################################
+#                                                               #
+#                           INCLUDES                            #
+#                                                               #
+################################################################# 
 group: !include groups.yaml
 automation: !include automations.yaml
 climate: !include climate.yaml

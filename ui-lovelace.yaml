@@ -10,8 +10,8 @@ views:
     id: Main # Optional unique id for direct access /lovelace/${id}
     cards:
       # First Card on the 'Main' View
-      - type: horizontal-stack
-        cards:
+      - type: entities
+        entities:
           - type: gauge
             entity: sensor.real_time_consumption_herman_grans_vei_58_a
             name: Effektforbruk
@@ -22,14 +22,16 @@ views:
               green: 0
               yellow: 4000
               red: 8000
-          - type: entities
-            entities:
-              - type: input_boolean
-                entity: input_boolean.kitchen_heating_enable
-              - type: input_boolean
-                entity: input_boolean.livingroom_heating_enable
-              - type: input_boolean
-                entity: input_boolean.hugosroom_heating_enable
+          - type: input_boolean
+            entity: input_boolean.kitchen_heating_enable
+          - type: input_boolean
+            entity: input_boolean.livingroom_heating_enable
+          - type: input_boolean
+            entity: input_boolean.hugosroom_heating_enable
+          - type: input_select
+            entity: input_select.system_mode
+          - type: cover
+            entity: cover.garage_door
 
 # Temperatures View
   - icon: mdi:thermometer #Icon
@@ -40,30 +42,13 @@ views:
         title: Temperaturer
         show_header_toggle: false
         entities:
-          - type: section
-            label: Kjøkken
           - type: custom:slider-entity-row
-            entity: input_number.kitchen_normal_temperature_setpoint
-            name: Normal
+            entity: input_number.kitchen_temperature_setpoint
+            name: Kjøkken
           - type: custom:slider-entity-row
-            entity: input_number.kitchen_lowered_temperature_setpoint
-            name: Senket
-            
-          - type: section
-            label: Stue
+            entity: input_number.livingroom_temperature_setpoint
+            name: Stue
           - type: custom:slider-entity-row
-            entity: input_number.livingroom_normal_temperature_setpoint
-            name: Normal
-          - type: custom:slider-entity-row
-            entity: input_number.livingroom_lowered_temperature_setpoint
-            name: Senket
-
-          - type: section
-            label: Hugos rom
-          - type: custom:slider-entity-row
-            entity: input_number.hugosroom_normal_temperature_setpoint
-            name: Normal
-          - type: custom:slider-entity-row
-            entity: input_number.hugosroom_lowered_temperature_setpoint
-            name: Senket
+            entity: input_number.hugosroom_temperature_setpoint
+            name: Hugos rom
 
