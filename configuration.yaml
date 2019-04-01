@@ -81,11 +81,14 @@ cover:
     name: "garage_door"
     state_topic: "home/outside/garage/door/state"
     command_topic: "home/outside/garage/door/set"
+    availability_topic: "home/outside/garage/door/availability"
     payload_open: "OPEN"
     payload_close: "OPEN"
     payload_stop: "OPEN"
     state_open: "open"
     state_closed: "closed"
+    payload_available: "online"
+    payload_not_available: "offline"
     retain: false
 
 #################################################################
