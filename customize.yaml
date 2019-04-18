@@ -1,5 +1,2 @@
-cover.garage_door_controller_switch:
-  hidden: true
-
 cover.garage_door:
   device_class: garage

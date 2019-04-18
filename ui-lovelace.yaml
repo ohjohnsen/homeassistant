@@ -1,13 +1,19 @@
 title: Home Automation
 resources:
-  - url: /local/plugins/slider-entity-row.js?v=1
+  - url: /customcards/custom-lovelace/bignumber-card.js
+    type: js
+  - url: /customcards/custom-lovelace/button-card.js
+    type: module
+  - url: /customcards/custom-lovelace/tracker-card.js?track=true
+    type: module
+  - url: /customcards/custom-lovelace/vertical-stack-in-card.js
     type: js
     
 views:
 # Main View
   - icon: mdi:home #Icon
     title: Hjem #Tool Tip
-    id: Main # Optional unique id for direct access /lovelace/${id}
+    path: home
     cards:
       # First Card on the 'Main' View
       - type: entities
@@ -32,11 +38,12 @@ views:
             entity: input_select.system_mode
           - type: cover
             entity: cover.garage_door
+      - type: custom:tracker-card
 
 # Temperatures View
   - icon: mdi:thermometer #Icon
     title: Temperaturer
-    id: Temperatures
+    path: temperatures
     cards:
       - type: entities
         title: Temperaturer
@@ -52,3 +59,80 @@ views:
             entity: input_number.hugosroom_temperature_setpoint
             name: Hugos rom
 
+  - icon: mdi:tablet-cellphone
+    title: Dashboard
+    path: dashboard
+    cards:
+      - type: custom:vertical-stack-in-card
+        title: Kjøkken
+        cards: 
+        - type: "horizontal-stack"
+          cards:
+          - type: "custom:bignumber-card"
+            entity: input_number.kitchen_temperature_setpoint
+            scale: 23px
+            from: left
+            min: 16
+            max: 30
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(223, 255, 97)
+            icon: mdi:thermometer-minus
+            tap_action:
+              action: service
+              service: input_number.decrement
+              service_data:
+                entity_id: input_number.kitchen_temperature_setpoint
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(223, 255, 97)
+            icon: mdi:thermometer-plus
+            tap_action:
+              action: service
+              service: input_number.increment
+              service_data:
+                entity_id: input_number.kitchen_temperature_setpoint
+          - type: "custom:button-card"
+            entity: input_boolean.kitchen_heating_enable
+            state:
+              - value: 'off'
+                icon: mdi:radiator-off
+              - value: 'on'
+                icon: mdi:radiator
+          
+      - type: custom:vertical-stack-in-card
+        title: Stue
+        cards:        
+        - type: "horizontal-stack"
+          cards:
+          - type: "custom:bignumber-card"
+            entity: input_number.livingroom_temperature_setpoint
+            scale: 23px
+            from: left
+            min: 16
+            max: 30
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(223, 255, 97)
+            icon: mdi:thermometer-minus
+            tap_action:
+              action: service
+              service: input_number.decrement
+              service_data:
+                entity_id: input_number.livingroom_temperature_setpoint
+          - type: "custom:button-card"
+            color_type: card
+            color: rgb(223, 255, 97)
+            icon: mdi:thermometer-plus
+            tap_action:
+              action: service
+              service: input_number.increment
+              service_data:
+                entity_id: input_number.livingroom_temperature_setpoint
+          - type: "custom:button-card"
+            entity: input_boolean.livingroom_heating_enable
+            state:
+              - value: 'off'
+                icon: mdi:radiator-off
+              - value: 'on'
+                icon: mdi:radiator

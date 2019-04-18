@@ -15,6 +15,14 @@ homeassistant:
 # Enables the frontend
 #frontend:
 
+custom_updater:
+  track:
+    - cards
+    - components
+  # show_installable: true
+  card_urls:
+    - https://raw.githubusercontent.com/kuuji/button-card/master/tracker.json
+
 lovelace:
   mode: yaml
 
@@ -96,10 +104,7 @@ cover:
 #                           INCLUDES                            #
 #                                                               #
 ################################################################# 
-group: !include groups.yaml
-automation: !include automations.yaml
 climate: !include climate.yaml
-script: !include scripts.yaml
 sensor: !include sensors.yaml
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
