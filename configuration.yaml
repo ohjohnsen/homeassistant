@@ -104,8 +104,9 @@ cover:
 #                           INCLUDES                            #
 #                                                               #
 ################################################################# 
+automation: !include automation.yaml
 climate: !include climate.yaml
-sensor: !include sensors.yaml
 input_boolean: !include input_boolean.yaml
 input_number: !include input_number.yaml
+sensor: !include sensors.yaml
 
