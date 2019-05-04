@@ -8,7 +8,11 @@ resources:
     type: module
   - url: /customcards/custom-lovelace/vertical-stack-in-card.js
     type: js
-    
+  - url: /customcards/github/thomasloven/card-tools.js?track=true
+    type: js
+  - url: /customcards/github/thomasloven/layout-card.js?track=true
+    type: js    
+
 views:
 # Main View
   - icon: mdi:home #Icon
@@ -18,7 +22,7 @@ views:
       # First Card on the 'Main' View
       - type: entities
         entities:
-          - type: gauge
+          - type: gauge0
             entity: sensor.real_time_consumption_herman_grans_vei_58_a
             name: Effektforbruk
             min: 0
@@ -63,77 +67,81 @@ views:
   - icon: mdi:tablet-cellphone
     title: Dashboard
     path: dashboard
+    panel: true
     cards:
-      - type: custom:vertical-stack-in-card
-        title: Kjøkken
-        cards: 
-        - type: "horizontal-stack"
-          cards:
-          - type: "custom:bignumber-card"
-            entity: input_number.kitchen_temperature_setpoint
-            scale: 23px
-            from: left
-            min: 16
-            max: 30
-          - type: "custom:button-card"
-            color_type: card
-            color: rgb(223, 255, 97)
-            icon: mdi:thermometer-minus
-            tap_action:
-              action: call-service
-              service: input_number.decrement
-              service_data:
-                entity_id: input_number.kitchen_temperature_setpoint
-          - type: "custom:button-card"
-            color_type: card
-            color: rgb(223, 255, 97)
-            icon: mdi:thermometer-plus
-            tap_action:
-              action: call-service
-              service: input_number.increment
-              service_data:
-                entity_id: input_number.kitchen_temperature_setpoint
-          - type: "custom:button-card"
-            entity: input_boolean.kitchen_heating_enable
-            state:
-              - value: 'off'
-                icon: mdi:radiator-off
-              - value: 'on'
-                icon: mdi:radiator
-          
-      - type: custom:vertical-stack-in-card
-        title: Stue
-        cards:        
-        - type: "horizontal-stack"
-          cards:
-          - type: "custom:bignumber-card"
-            entity: input_number.livingroom_temperature_setpoint
-            scale: 23px
-            from: left
-            min: 16
-            max: 30
-          - type: "custom:button-card"
-            color_type: card
-            color: rgb(223, 255, 97)
-            icon: mdi:thermometer-minus
-            tap_action:
-              action: call-service
-              service: input_number.decrement
-              service_data:
-                entity_id: input_number.livingroom_temperature_setpoint
-          - type: "custom:button-card"
-            color_type: card
-            color: rgb(223, 255, 97)
-            icon: mdi:thermometer-plus
-            tap_action:
-              action: call-service
-              service: input_number.increment
-              service_data:
-                entity_id: input_number.livingroom_temperature_setpoint
-          - type: "custom:button-card"
-            entity: input_boolean.livingroom_heating_enable
-            state:
-              - value: 'off'
-                icon: mdi:radiator-off
-              - value: 'on'
-                icon: mdi:radiator
+      - type: custom:layout-card
+        cards:
+          - type: custom:vertical-stack-in-card
+            title: Kjøkken
+            cards: 
+            - type: "horizontal-stack"
+              cards:
+              - type: "custom:bignumber-card"
+                entity: input_number.kitchen_temperature_setpoint
+                scale: 23px
+                from: left
+                min: 16
+                max: 30
+              - type: "custom:button-card"
+                color_type: card
+                color: rgb(223, 255, 97)
+                icon: mdi:thermometer-minus
+                tap_action:
+                  action: call-service
+                  service: input_number.decrement
+                  service_data:
+                    entity_id: input_number.kitchen_temperature_setpoint
+              - type: "custom:button-card"
+                color_type: card
+                color: rgb(223, 255, 97)
+                icon: mdi:thermometer-plus
+                tap_action:
+                  action: call-service
+                  service: input_number.increment
+                  service_data:
+                    entity_id: input_number.kitchen_temperature_setpoint
+              - type: "custom:button-card"
+                entity: input_boolean.kitchen_heating_enable
+                state:
+                  - value: 'off'
+                    icon: mdi:radiator-off
+                  - value: 'on'
+                    icon: mdi:radiator
+            
+          - type: custom:vertical-stack-in-card
+            title: Stue
+            cards:        
+            - type: "horizontal-stack"
+              cards:
+              - type: "custom:bignumber-card"
+                entity: input_number.livingroom_temperature_setpoint
+                scale: 23px
+                from: left
+                min: 16
+                max: 30
+              - type: "custom:button-card"
+                color_type: card
+                color: rgb(223, 255, 97)
+                icon: mdi:thermometer-minus
+                tap_action:
+                  action: call-service
+                  service: input_number.decrement
+                  service_data:
+                    entity_id: input_number.livingroom_temperature_setpoint
+              - type: "custom:button-card"
+                color_type: card
+                color: rgb(223, 255, 97)
+                icon: mdi:thermometer-plus
+                tap_action:
+                  action: call-service
+                  service: input_number.increment
+                  service_data:
+                    entity_id: input_number.livingroom_temperature_setpoint
+              - type: "custom:button-card"
+                entity: input_boolean.livingroom_heating_enable
+                state:
+                  - value: 'off'
+                    icon: mdi:radiator-off
+                  - value: 'on'
+                    icon: mdi:radiator
+
