@@ -12,14 +12,14 @@ homeassistant:
   time_zone: !secret home_time_zone
   customize: !include customize.yaml
 
-# Enables the frontend
-#frontend:
-
+frontend:
+  themes: !include_dir_named themes
+  
 custom_updater:
   track:
     - cards
     - components
-  # show_installable: true
+# show_installable: true
   card_urls:
     - https://raw.githubusercontent.com/kuuji/button-card/master/tracker.json
 

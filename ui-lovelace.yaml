@@ -59,6 +59,7 @@ views:
             entity: input_number.hugosroom_temperature_setpoint
             name: Hugos rom
 
+# Tablet View
   - icon: mdi:tablet-cellphone
     title: Dashboard
     path: dashboard
@@ -79,7 +80,7 @@ views:
             color: rgb(223, 255, 97)
             icon: mdi:thermometer-minus
             tap_action:
-              action: service
+              action: call-service
               service: input_number.decrement
               service_data:
                 entity_id: input_number.kitchen_temperature_setpoint
@@ -88,7 +89,7 @@ views:
             color: rgb(223, 255, 97)
             icon: mdi:thermometer-plus
             tap_action:
-              action: service
+              action: call-service
               service: input_number.increment
               service_data:
                 entity_id: input_number.kitchen_temperature_setpoint
@@ -116,7 +117,7 @@ views:
             color: rgb(223, 255, 97)
             icon: mdi:thermometer-minus
             tap_action:
-              action: service
+              action: call-service
               service: input_number.decrement
               service_data:
                 entity_id: input_number.livingroom_temperature_setpoint
@@ -125,7 +126,7 @@ views:
             color: rgb(223, 255, 97)
             icon: mdi:thermometer-plus
             tap_action:
-              action: service
+              action: call-service
               service: input_number.increment
               service_data:
                 entity_id: input_number.livingroom_temperature_setpoint
